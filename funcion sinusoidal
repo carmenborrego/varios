@@ -1,0 +1,17 @@
+import scipy as sp
+import matplotlib.pyplot as plt
+
+# Creamos el array x de cero a cien con cien puntos
+x = sp.linspace(0, 10, 100)
+
+# Creamos el array y conde cada punto es el seno de cada elemento de x
+y = sp.sin(x)
+
+# Creamos una figura
+plt.figure()
+
+# Representamos
+plt.plot(x,y)
+
+# Mostramos en pantalla
+plt.show()
