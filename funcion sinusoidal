@@ -1,17 +1,21 @@
+
+#se importan las librerias necesarias
+
+
 import scipy as sp
 import matplotlib.pyplot as plt
 
-# Creamos el array x de cero a cien con cien puntos
+#crear array llamado x indicando lo siguiente: 0 que empiece en cero, 10 que vaya de diez en diez y 100 que llegue hasta 100
 x = sp.linspace(0, 10, 100)
 
-# Creamos el array y conde cada punto es el seno de cada elemento de x
+# se crea 'y' y se indicad quecada punto es el seno de cada elemento de x
 y = sp.sin(x)
 
-# Creamos una figura
+#pedimos que se grafique la figura resultante
 plt.figure()
 
-# Representamos
+#graficador
 plt.plot(x,y)
 
-# Mostramos en pantalla
+#pedimos que muestre el resultado
 plt.show()
