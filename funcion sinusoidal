@@ -17,5 +17,8 @@ plt.figure()
 #graficador
 plt.plot(x,y)
 
+#pedimos que nos muestre las lineas para ver cuando la linea pasa por el cero
+plt.grid(True)
+
 #pedimos que muestre el resultado
 plt.show()
