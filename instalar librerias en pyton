@@ -1,0 +1,21 @@
+import os 
+paquete=input('qué paquete instalamos')
+paquete=str(paquete)
+while True:
+    try: 
+        codigo='pip install'+ paquete
+        os.system(codigo)
+        print ('paquete instalado')
+    except:
+            print('error al instalar paquete')
+    continuar=input('quieres instalar otro?')
+    continuar=str(continuar)
+    if continuar=='S' or continuar=='s' or continuar=='si' or continuar=='SI':
+        paquete=input('qué paquete instalamos')
+        paquete=str(paquete)
+    else:
+        break
+print('fin')
+
+
+            
