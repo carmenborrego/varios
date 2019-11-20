@@ -1,0 +1,50 @@
+import matplotlib.pyplot as plt 
+from pykalman import KalmanFilter 
+import numpy as np
+import pandas as pd
+
+
+
+df = pd.read_csv('testdata.csv')
+print(df)
+pd.set_option('use_inf_as_null', True)
+
+df.dropna(inplace=True)
+
+
+X = df.drop('Y', axis=1)
+y = df['Y']
+
+
+
+estimated_value= np.array(X)
+real_value = np.array(y)
+
+measurements = np.asarray(estimated_value)
+
+
+
+kf = KalmanFilter(n_dim_obs=1, n_dim_state=1, 
+                  transition_matrices=[1],
+                  observation_matrices=[1],
+                  initial_state_mean=measurements[0,1], 
+                  initial_state_covariance=1,
+                  observation_covariance=5,
+                  transition_covariance=1)
+
+state_means, state_covariances = kf.filter(measurements[:,1]) 
+state_std = np.sqrt(state_covariances[:,0])
+print (state_std)
+print (state_means)
+print (state_covariances)
+
+
+fig, ax = plt.subplots()
+ax.margins(x=0, y=0.05)
+
+plt.plot(measurements[:,0], measurements[:,1], '-r', label='Real Value Input') 
+plt.plot(measurements[:,0], state_means, '-b', label='Kalman-Filter') 
+plt.legend(loc='best')
+ax.set_xlabel("Time")
+ax.set_ylabel("Value")
+plt.show()
