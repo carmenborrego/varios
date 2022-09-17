@@ -1,0 +1,19 @@
+#NORMALIZACIÓN MIN MAX
+#CREANDO LA LISTA A LEER
+
+
+rm(list = ls())
+
+data = c(1200,34567,3456,12,3456,0985,1211)
+summary(data)
+library(caret)
+process <- preProcess(as.data.frame(data), method=c("range"))
+
+norm_scale <- predict(process, as.data.frame(data))
+
+#STANDARD NORMALIZATION
+rm(list = ls())
+data = c(1200,34567,3456,12,3456,0985,1211)
+summary(data)
+scale_data <- as.data.frame(scale(data))
+
